@@ -1,79 +1,54 @@
 package Controller;
 
-import Model.Entry;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Model.Topic;
 
 public class TopicController {
+    private ArrayList<Topic> topics = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
 
-    private static ArrayList<Entry> entries = new ArrayList<>();
-    private static int idCounter = 1;
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        int choice;
-
+    public void menu() {
         while (true) {
-            System.out.println("\n1. Add Topic");
-            System.out.println("2. View Topics");
+            System.out.println("Menu");
+            System.out.println("1. Add topic");
+            System.out.println("2. View topic");
             System.out.println("3. Exit");
-            System.out.print("Choose option: ");
 
-            choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            int choice = sc.nextInt();
+            sc.nextLine();
+
 
             switch (choice) {
-
-                case 1:
-                    addTopic(sc);
+                case choice == 1:
+                    addTopic();
                     break;
 
-                case 2:
-                    viewTopics();
+                case choice == 2:
+                    viewTopic();
                     break;
 
-                case 3:
-                    System.out.println("Exiting...");
-                    sc.close();
+                case choice == 3:
                     return;
 
                 default:
-                    System.out.println("Invalid choice.");
+                    System.out.println("Invalid option");
             }
+
+
         }
     }
 
-    private static void addTopic(Scanner sc) {
-
-        System.out.print("Enter topic name: ");
+    public static void addTopic() {
+        System.out.println("Enter Id: ");
+        int id = sc.nextInt();
+        sc.next();
+        System.out.println("Enter topic name: ");
         String name = sc.nextLine();
-
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-
-        Entry entry = new Entry(
-                idCounter++,
-                name,
-                now,
-                now
-        );
-
-        entries.add(entry);
-
-        System.out.println("Topic added successfully.");
     }
 
-    private static void viewTopics() {
+    public static void viewTopic() {
 
-        if (entries.isEmpty()) {
-            System.out.println("No topics found.");
-            return;
-        }
-
-        System.out.println("\n--- Topics ---");
-        for (Entry entry : entries) {
-            System.out.println(entry);
-        }
     }
 }

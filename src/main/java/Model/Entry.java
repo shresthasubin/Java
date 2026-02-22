@@ -1,15 +1,16 @@
 package Model;
+
 import java.sql.Timestamp;
 
 public class Entry {
     private int id;
-    private String name;
+    private String note;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
-    public Entry(int id, String name, Timestamp createdAt, Timestamp updatedAt) {
+    public Entry(int id, String note, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
-        this.name = name;
+        this.note = note;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -18,8 +19,8 @@ public class Entry {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getNote() {
+        return note;
     }
 
     public Timestamp getCreatedAt() {
@@ -30,8 +31,29 @@ public class Entry {
         return updatedAt;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public String toString() {
-        return id + ". " + name;
+        return "Entry{" +
+                "id=" + id +
+                ", note='" + note + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }
