@@ -5,8 +5,10 @@ import java.sql.Timestamp;
 public class Topic {
     private int id;
     private String name;
-    private final Timestamp createdAt;
+    private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    public Topic(){}
 
     public Topic(int id, String name, Timestamp createdAt, Timestamp updatedAt){
         this.id = id;
@@ -25,6 +27,10 @@ public class Topic {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public int getId () {

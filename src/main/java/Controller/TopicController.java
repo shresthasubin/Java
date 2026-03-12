@@ -21,15 +21,15 @@ public class TopicController {
 
 
             switch (choice) {
-                case choice == 1:
+                case 1:
                     addTopic();
                     break;
 
-                case choice == 2:
+                case 2:
                     viewTopic();
                     break;
 
-                case choice == 3:
+                case 3:
                     return;
 
                 default:
@@ -40,7 +40,7 @@ public class TopicController {
         }
     }
 
-    public static void addTopic() {
+    public void addTopic() {
         System.out.println("Enter Id: ");
         int id = sc.nextInt();
         sc.next();
